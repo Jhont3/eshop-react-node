@@ -1,0 +1,9 @@
+comandos node:
+
+mkdir <carpeta>
+cd  <carpeta>
+npm init -y
+npm i nodemon -g (como admin o sudo en Linux)
+touch index.js
+npm i express
+npm i dotenv --save
