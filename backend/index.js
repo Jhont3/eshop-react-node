@@ -6,13 +6,9 @@ require('dotenv').config();
 
 const app = express();
 
+app.use('/api/auth', require('./routes/auth'))
+
 app.use( express.static('public'))
-
-
-// app.get('/', (req, res) =>{
-//     console.log(`se requiere /`)
-//     res.json({ok:true})
-// } );
 
 app.listen( process.env.PORT, () => {
     console.log(`servidor en puerto ${process.env.PORT}`)
