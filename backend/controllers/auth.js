@@ -5,24 +5,15 @@ const signUp = (req, res = response) => {
 
     const { name, email, password } = req.body
 
-    // TODO express-validator
-    // name.length < 2 && res.status(400).json({
-    //     ok: false,
-    //     msg: "Name should be 2 or more letters"
-    // })
-
     const errors = validationResult( req );
-    // console.log( errors );
-
     !errors.isEmpty() && res.status(400).json({
         ok: false,
         errors: errors.mapped()
     })
 
-    res.json({
+    res.status(201).json({
         ok: true,
         msg: 'register',
-        // user: req.body,
         name,
         email,
         password
@@ -30,7 +21,18 @@ const signUp = (req, res = response) => {
 }
 
 const signIn = (req, res = response ) => {
+
+    const { email, password } = req.body
+
+    const errors = validationResult( req );
+    !errors.isEmpty() && res.status(400).json({
+        ok: false,
+        errors: errors.mapped()
+    })
+
     res.json({
+        email,
+        password,
         ok: true,
         msg: 'login'
     })
