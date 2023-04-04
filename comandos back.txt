@@ -7,4 +7,5 @@ npm i nodemon -g (como admin o sudo en Linux)
 touch index.js
 npm i express
 npm i dotenv --save
-npm i express-validator (TODO)
+npm i express-validator
+npm i mongoose

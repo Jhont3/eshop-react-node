@@ -1,11 +1,15 @@
 const express = require('express');
 require('dotenv').config();
+const { dbConection } = require('./database/config');
 
 //Ver los procesos y sacar el PORT del .env
 // console.log( process.env )
 
+//Create server
 const app = express();
 
+// BD
+dbConection();
 
 
 app.use( express.json() );
@@ -17,6 +21,6 @@ app.use( express.static('public'));
 
 
 
-app.listen( process.env.PORT, () => {
-    console.log(`servidor en puerto ${process.env.PORT}`)
+app.listen( process.env.MONGO_PORT, () => {
+    console.log(`servidor en puerto ${process.env.MONGO_PORT}`)
 })
