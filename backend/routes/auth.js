@@ -1,12 +1,18 @@
 // Rutes users ---- host + /api/auth 
 
 const { Router } = require('express');
+const { check } = require('express-validator');
 const router = Router();
 
 const { signUp, signIn, revalidateJWT } = require('../controllers/auth')
 
 
-router.post('/register', signUp);
+router.post(
+    '/register', 
+    [//midleware
+        check('name', 'El nombre es obligatorio' ).not().isEmpty()
+    ],
+    signUp);
 
 router.post('/', signIn);
 
