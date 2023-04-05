@@ -1,5 +1,6 @@
 const express = require('express');
 require('dotenv').config();
+const cors = require('cors');
 const { dbConection } = require('./database/config');
 
 //Ver los procesos y sacar el PORT del .env
@@ -10,6 +11,8 @@ const app = express();
 
 // BD
 dbConection();
+
+app.use( cors() );
 
 
 app.use( express.json() );
