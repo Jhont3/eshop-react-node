@@ -9,3 +9,4 @@ npm i express
 npm i dotenv --save
 npm i express-validator
 npm i mongoose
+npm i bcryptjs
