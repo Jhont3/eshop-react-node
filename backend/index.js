@@ -18,6 +18,8 @@ app.use( cors() );
 app.use( express.json() );
 
 app.use('/api/auth', require('./routes/auth'))
+app.use('/api/events', require('./routes/events'))
+
 
 app.use( express.static('public'));
 

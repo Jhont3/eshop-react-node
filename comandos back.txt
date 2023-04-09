@@ -11,3 +11,14 @@ npm i express-validator
 npm i mongoose
 npm i bcryptjs
 npm i jsonwebtoken
+npm i cors
+
+
+
+
+TODO:
+Favorites
+Categories
+directions, shipping adress
+discount by group of products?
+implement Stripe?
