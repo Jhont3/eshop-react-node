@@ -1,4 +1,5 @@
 const User = require('../models/User')
+const bcrypt = require('bcryptjs');
 
 const getUsers = async (req, res) => {
   try {
@@ -31,26 +32,42 @@ const getUserById = async (req, res) => {
 };
 
 const updateUser = async (req, res) => {
+
+  const { id } = req.params;
+  const uid = req.uid;
+
   try {
 
-    const { id } = req.params;
-    const { email, password } = req.body;
+    const userID = await User.findById( id )
 
-    const user = await User.findById(id);
-
-    if (!user) {
-      return res.status(404).json({ message: 'Usuario no encontrado' });
+    if ( !userID ) {
+      return res.status(404).json({ 
+        ok: false,
+        message: 'User not found.' 
+      });
     }
 
-    if (email) user.email = email;
-    if (password) user.password = await bcrypt.hash(password, 10);
-    await user.save();
+    if ( userID._id.toString() !== uid ) {
+      return res.status(401).json({
+          ok: false,
+          msg: 'You are not authorized to do this.'
+      });
+  }
 
-    res.status(200).json(user);
+    const newUser = {
+      ...req.body,
+    }
+
+    const userUpdated = await User.findByIdAndUpdate ( userID, newUser, { new: true } );
+
+    res.json({
+        ok: true,
+        user: userUpdated
+    });
 
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Ha ocurrido un error al actualizar el usuario' });
+    res.status(500).json({ message: 'Something went wrong, wait a moment and try again please' });
   }
 };
 
