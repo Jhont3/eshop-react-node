@@ -9,7 +9,7 @@ const getUsers = async (req, res) => {
 
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Ha ocurrido un error al obtener los usuarios' });
+    res.status(500).json({ message: 'Something went wrong, wait a moment and try again please' });
   }
 };
 
@@ -20,14 +20,14 @@ const getUserById = async (req, res) => {
     const user = await User.findById(id);
 
     if (!user) {
-      return res.status(404).json({ message: 'Usuario no encontrado' });
+      return res.status(404).json({ message: 'User not found.' });
     }
 
     res.status(200).json(user);
     
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Ha ocurrido un error al obtener el usuario' });
+    res.status(500).json({ message: 'Something went wrong, wait a moment and try again please' });
   }
 };
 
@@ -52,10 +52,16 @@ const updateUser = async (req, res) => {
           ok: false,
           msg: 'You are not authorized to do this.'
       });
-  }
+    }
+    
+    const user = new User( req.body ); 
+    const password = req.body.password
+
+    const salt = bcrypt.genSaltSync();
+    user.password = bcrypt.hashSync( password, salt )
 
     const newUser = {
-      ...req.body,
+      user
     }
 
     const userUpdated = await User.findByIdAndUpdate ( userID, newUser, { new: true } );
