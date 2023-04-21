@@ -72,25 +72,37 @@ const updateUser = async (req, res) => {
 };
 
 const deleteUser = async (req, res) => {
+  
+  const { id } = req.params;
+  const uid = req.uid;
+
   try {
 
-    const { id } = req.params;
+    const userID = await User.findById( id )
 
-    const user = await User.findById( id );
-    console.log( user )
-    
-    if (!user) {
-      return res.status(404).json({ message: 'Usuario no encontrado' });
+    if ( !userID ) {
+      return res.status(404).json({ 
+        ok: false,
+        message: 'User not found.' 
+      });
     }
 
-    await user.findByIdAndDelete( id );
+    if ( userID._id.toString() !== uid ) {
+      return res.status(401).json({
+          ok: false,
+          msg: 'You are not authorized to do this.'
+      });
+  }
 
-    res.status(200).json(user);
+    await User.findByIdAndDelete ( userID );
+
+    res.json({ ok: true });
 
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Ha ocurrido un error al eliminar el usuario' });
+    res.status(500).json({ message: 'Something went wrong, wait a moment and try again please' });
   }
+
 };
 
 module.exports = {
