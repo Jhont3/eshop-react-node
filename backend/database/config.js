@@ -8,10 +8,9 @@ const dbConection = async () => {
         console.log('DB Online');
 
     } catch (error) {
-
         console.error(error);
         throw new Error('Error initializing DB'); 
-    
+        
     }
 }
 

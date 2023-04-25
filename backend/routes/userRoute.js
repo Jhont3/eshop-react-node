@@ -1,4 +1,4 @@
-// Rutes users ---- host + /api/auth 
+// Rutes users ---- host + /api/users 
 const express = require('express');
 const { check } = require('express-validator');
 

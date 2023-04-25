@@ -22,6 +22,8 @@ app.use('/api/auth', require('./routes/auth'))
 
 app.use('/api/user', require('./routes/userRoute'))
 
+app.use('/api/products', require('./routes/productRoute'))
+
 
 app.use( express.static('public'));
 
