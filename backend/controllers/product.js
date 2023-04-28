@@ -36,37 +36,28 @@ const createProduct = async ( req, res = response ) => {
 
 const updateProduct = async( req, res = response ) => {
     
-    const eventoId = req.params.id;
-    const uid = req.uid;
+    const productoId = req.params.id;
 
     try {
 
-        const evento = await Evento.findById( eventoId );
+        const product = await Product.findById( productoId );
 
-        if ( !evento ) {
+        if ( !product ) {
             return res.status(404).json({
                 ok: false,
-                msg: 'Evento no existe por ese id'
+                msg: 'The product id does not exists'
             });
         }
 
-        if ( evento.user.toString() !== uid ) {
-            return res.status(401).json({
-                ok: false,
-                msg: 'No tiene privilegio de editar este evento'
-            });
-        }
-
-        const nuevoEvento = {
+        const newProduct = {
             ...req.body,
-            user: uid
         }
 
-        const eventoActualizado = await Evento.findByIdAndUpdate( eventoId, nuevoEvento, { new: true } );
+        const productUpdated = await Product.findByIdAndUpdate( productoId, newProduct, { new: true } );
 
         res.json({
             ok: true,
-            evento: eventoActualizado
+            product: productUpdated
         });
 
         
@@ -74,46 +65,38 @@ const updateProduct = async( req, res = response ) => {
         console.log(error);
         res.status(500).json({
             ok: false,
-            msg: 'Hable con el administrador'
+            msg: 'Something went wrong, wait a moment and try again please'
         });
     }
 
 }
 
 const deleteProduct = async( req, res = response ) => {
-
-    const eventoId = req.params.id;
-    const uid = req.uid;
+    
+    const productoId = req.params.id;
 
     try {
 
-        const evento = await Evento.findById( eventoId );
+        const product = await Product.findById( productoId );
 
-        if ( !evento ) {
+        if ( !product ) {
             return res.status(404).json({
                 ok: false,
-                msg: 'Evento no existe por ese id'
+                msg: 'The product id does not exists'
             });
         }
 
-        if ( evento.user.toString() !== uid ) {
-            return res.status(401).json({
-                ok: false,
-                msg: 'No tiene privilegio de eliminar este evento'
-            });
-        }
+        await Product.findByIdAndDelete( productoId );
 
-
-        await Evento.findByIdAndDelete( eventoId );
-
-        res.json({ ok: true });
-
-        
+        res.json({
+            ok: true,
+        });
+ 
     } catch (error) {
         console.log(error);
         res.status(500).json({
             ok: false,
-            msg: 'Hable con el administrador'
+            msg: 'Something went wrong, wait a moment and try again please'
         });
     }
 

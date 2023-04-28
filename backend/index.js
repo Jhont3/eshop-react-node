@@ -20,9 +20,9 @@ app.use( express.json() );
 app.use('/api/auth', require('./routes/auth'))
 // app.use('/api/events', require('./routes/events'))
 
-app.use('/api/user', require('./routes/userRoute'))
+app.use('/api/user', require('./routes/user'))
 
-app.use('/api/products', require('./routes/productRoute'))
+app.use('/api/products', require('./routes/product'))
 
 
 app.use( express.static('public'));

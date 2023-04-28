@@ -2,7 +2,6 @@
 const express = require('express');
 const { check } = require('express-validator');
 
-
 const { getUsers, getUserById, updateUser, deleteUser } = require('../controllers/user');
 const { validateFields } = require('../middlewares/validateFields')
 const { validateJWT } = require('../middlewares/validateJWT');
