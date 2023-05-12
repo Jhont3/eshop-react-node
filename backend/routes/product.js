@@ -1,7 +1,7 @@
 // Rutes products ---- host + /api/products
 const express = require('express');
 const { check } = require('express-validator');
-const { getProducts, createProduct, updateProduct, deleteProduct } = require('../controllers/product');
+const { getProducts, getProductById, createProduct, updateProduct, deleteProduct } = require('../controllers/product');
 const { validateJWT } = require('../middlewares/validateJWT');
 const { validateFields } = require('../middlewares/validateFields')
 
@@ -9,6 +9,7 @@ const router = express.Router();
 
 
 router.get('/', getProducts)
+router.get('/:id', getProductById)
 
 router.use( validateJWT )
 

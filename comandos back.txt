@@ -12,9 +12,7 @@ npm i mongoose
 npm i bcryptjs
 npm i jsonwebtoken
 npm i cors
-
-
-
+npm i moment
 
 TODO:
 Favorites
@@ -22,3 +20,4 @@ Categories
 directions, shipping adress
 discount by group of products?
 implement Stripe?
+validation correct cost products, products in orders

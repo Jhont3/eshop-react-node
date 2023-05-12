@@ -24,6 +24,7 @@ app.use('/api/user', require('./routes/user'))
 
 app.use('/api/products', require('./routes/product'))
 
+app.use('/api/orders', require('./routes/order'))
 
 app.use( express.static('public'));
 

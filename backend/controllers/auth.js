@@ -41,7 +41,6 @@ const signUp = async (req, res = response) => {
             msg: 'Something went wrong, please contact the admin'
         })
     }
-
 }
 
 const signIn = async (req, res = response ) => {
@@ -83,8 +82,6 @@ const signIn = async (req, res = response ) => {
             msg: 'Something went wrong, please contact the admin'
         })
     }
-
-
 }
 
 const revalidateJWT = async (req, res = response ) => {
@@ -98,7 +95,6 @@ const revalidateJWT = async (req, res = response ) => {
         token
     })
 }
-
 
 module.exports = {
     signUp,
