@@ -21,3 +21,10 @@ directions, shipping adress
 discount by group of products?
 implement Stripe?
 validation correct cost products, products in orders
+validation and delete function like admin
+
+comandos front:
+yarn create vite eshop-fe --template react-ts
+cd <eshop-fe>
+yarn i
+yarn add react-router-dom@6
