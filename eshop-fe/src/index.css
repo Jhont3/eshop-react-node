@@ -13,6 +13,6 @@ body {
 }
 
 .nav-active {
-	color: grey;
+	color: rgb(255, 255, 255);
 	transition: all 0.3s ease-out;
 }

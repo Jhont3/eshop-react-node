@@ -7,54 +7,39 @@ import {
 } from "react-router-dom";
 
 import logo from "/vite.svg";
+import { routes } from "./routes";
+
+// import { Home, ProductDetail, User } from "../pages";
 
 export const Navigation = () => {
 	return (
 		<Router>
 			<div>
-				<nav className='flex justify-around items-center bg-green-300'>
+				<nav className='flex justify-around items-center bg-blue-1'>
 					<img src={logo} alt='React Logo' className='p-1.5' />
 					<ul className='flex gap-5'>
-						<li>
-							<NavLink
-								to='/home'
-								className={({ isActive }) => (isActive ? "nav-active" : "")}
-							>
-								Home
-							</NavLink>
-						</li>
-						<li>
-							<NavLink
-								to='/about'
-								className={({ isActive }) => (isActive ? "nav-active" : "")}
-							>
-								About
-							</NavLink>
-						</li>
-						<li>
-							<NavLink
-								to='/users'
-								className={({ isActive }) => (isActive ? "nav-active" : "")}
-							>
-								Users
-							</NavLink>
-						</li>
+						{routes.map(({ to, name }) => (
+							<li key={to}>
+								<NavLink
+									to={to}
+									className={({ isActive }) => (isActive ? "nav-active" : "")}
+								>
+									{name}
+								</NavLink>
+							</li>
+						))}
 					</ul>
 				</nav>
 
 				<Routes>
-					<Route
-						path='/about'
-						element={
-							<h1 className='text-3xl font-bold w-1/2 underline'>
-								Hello world!
-							</h1>
-						}
-					></Route>
-					<Route path='/users' element={<h1>Users Page</h1>}></Route>
-					<Route path='/home' element={<h1>Home Page</h1>}></Route>
+					{routes.map(({ path, component: Component }) => (
+						<Route key={path} path={path} element={<Component />}></Route>
+					))}
 
-					<Route path='/*' element={<Navigate to='/Home' replace />}></Route>
+					<Route
+						path='/*'
+						element={<Navigate to={routes[0].to} replace />}
+					></Route>
 				</Routes>
 			</div>
 		</Router>
