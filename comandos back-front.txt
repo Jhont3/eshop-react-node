@@ -28,3 +28,5 @@ yarn create vite eshop-fe --template react-ts
 cd <eshop-fe>
 yarn i
 yarn add react-router-dom@6
+yarn add -D tailwindcss postcss autoprefixer
+npx tailwindcss init
