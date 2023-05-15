@@ -29,7 +29,7 @@ export const Navigation = () => {
 							</li>
 						))}
 					</ul>
-					<div className="flex justify-around items-center w-1/4">
+					<div className="flex justify-around items-center">
 						<HeaderButtons/>
 						<IconShoppingCart />
 					</div>
