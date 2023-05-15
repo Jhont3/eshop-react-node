@@ -6,8 +6,8 @@ import {
 	Navigate,
 } from "react-router-dom";
 
-import logo from "/vite.svg";
 import { routes } from "./routes";
+import { HeaderButtons, IconShoppingCart } from "../components";
 
 // import { Home, ProductDetail, User } from "../pages";
 
@@ -15,8 +15,8 @@ export const Navigation = () => {
 	return (
 		<Router>
 			<div>
-				<nav className='flex justify-around items-center bg-blue-1'>
-					<img src={logo} alt='React Logo' className='p-1.5' />
+				<nav className='flex justify-around items-center bg-green-3'>
+					<img src={"./logo-eshop.png"} alt='React Logo' className=' w-16' />
 					<ul className='flex gap-5'>
 						{routes.map(({ to, name }) => (
 							<li key={to}>
@@ -29,6 +29,10 @@ export const Navigation = () => {
 							</li>
 						))}
 					</ul>
+					<div className="flex justify-around items-center w-1/4">
+						<HeaderButtons/>
+						<IconShoppingCart />
+					</div>
 				</nav>
 
 				<Routes>

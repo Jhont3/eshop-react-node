@@ -30,3 +30,4 @@ yarn i
 yarn add react-router-dom@6
 yarn add -D tailwindcss postcss autoprefixer
 npx tailwindcss init
+yarn add axios
