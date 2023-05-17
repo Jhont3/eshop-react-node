@@ -1,15 +1,18 @@
 import { ProductCard } from "../components";
 import { products } from "../data/products";
+import { useDataProduts } from "../hooks";
 
 export const Shopping = () => {
+	const query = useDataProduts();
+
 	return (
 		<>
 			<section className='relative'>
 				<article className='grid grid-cols-1 justify-center items-center gap-5 md:grid-cols-2 '>
-					<h1 className='z-30 text-blue-2 font-bold text-4xl absolute top-1/3 left-1/4 transform -translate-y-1/2 shadow-2xl'>
+					<h1 className='z-30 text-green-1 font-bold text-4xl absolute top-1/3 left-1/4 transform -translate-y-1/2 shadow-2xl'>
 						HAIRY MONSTER
 					</h1>
-					<p className='absolute z-30 text-blue-2 font-bold top-1/2 left-1/4 transform -translate-y-1/2 shadow-2xl'>
+					<p className='absolute z-30 text-green-1 font-bold top-1/2 left-1/4 transform -translate-y-1/2 shadow-2xl'>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla
 						asperiores voluptatem commodi aliquam. Exercitationem!
 					</p>
@@ -35,6 +38,26 @@ export const Shopping = () => {
 					/>
 				))}
 			</section>
+			<div>
+				{query.isFetching ? (
+					<h2>Cargando...</h2>
+				) : (
+					<div>
+						{query.data && query.data.ok ? (
+							query.data.products.map((product: any) => (
+								<div key={product.id}>
+									<h2>Name: {product.name}</h2>
+									<p>Description: {product.description}</p>
+									<p>Price: {product.price}</p>
+								</div>
+							))
+						) : (
+							<h2>No products found.</h2>
+						)}
+					</div>
+				)}
+				{!query.isLoading && query.isError && <h3> {`${query.error}`} </h3>}
+			</div>
 		</>
 	);
 };

@@ -1,0 +1,1 @@
+export { useDataProduts } from './useDataProduts';

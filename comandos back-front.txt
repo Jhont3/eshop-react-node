@@ -32,3 +32,4 @@ yarn add -D tailwindcss postcss autoprefixer
 npx tailwindcss init
 yarn add axios
 yarn add gsap
+yarn add @tanstack/react-query
