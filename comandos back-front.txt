@@ -33,3 +33,4 @@ npx tailwindcss init
 yarn add axios
 yarn add gsap
 yarn add @tanstack/react-query
+yarn add @tanstack/react-query-devtools

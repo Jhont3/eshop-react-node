@@ -3,7 +3,10 @@ import { products } from "../data/products";
 import { useDataProduts } from "../hooks";
 
 export const Shopping = () => {
-	const query = useDataProduts();
+	const productsQuery = useDataProduts();
+
+	if ( productsQuery.isLoading )
+		return ( <h1> Cargando... </h1>);
 
 	return (
 		<>
@@ -39,24 +42,10 @@ export const Shopping = () => {
 				))}
 			</section>
 			<div>
-				{query.isFetching ? (
-					<h2>Cargando...</h2>
-				) : (
-					<div>
-						{query.data && query.data.ok ? (
-							query.data.products.map((product: any) => (
-								<div key={product.id}>
-									<h2>Name: {product.name}</h2>
-									<p>Description: {product.description}</p>
-									<p>Price: {product.price}</p>
-								</div>
-							))
-						) : (
-							<h2>No products found.</h2>
-						)}
-					</div>
-				)}
-				{!query.isLoading && query.isError && <h3> {`${query.error}`} </h3>}
+				{ productsQuery.data?.map( item => (
+					<span key={ item.id }> { item.name } </span>
+				))
+				}
 			</div>
 		</>
 	);

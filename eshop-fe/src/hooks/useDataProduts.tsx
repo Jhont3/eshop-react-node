@@ -1,16 +1,19 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery } from '@tanstack/react-query';
+import { eshopApi } from '../api/eshopApi';
+import { HProduct } from '../interfaces/products';
 
-const getHairProducts = async (): Promise<any> => {
-	const res = await fetch("http://localhost:4000/api/products");
-	const data = await res.json();
+
+const getHairProducts = async (): Promise<HProduct[]> => {
+	const { data } = await eshopApi.get<HProduct[]>('/products');
 	console.log(data);
 	return data;
 };
 
 export const useDataProduts = () => {
-    const query = useQuery(
-        ['hairProducts'],
-        getHairProducts
-    );
-    return query;
-}
+	const query = useQuery(["hairProducts"], getHairProducts, {
+		retry: 1,
+		refetchOnWindowFocus: false,
+	});
+
+	return query;
+};

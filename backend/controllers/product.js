@@ -6,10 +6,9 @@ const getProducts = async( req, res = response ) => {
 
     const products = await Product.find()
 
-    res.json({
-        ok: true,
+    res.json(
         products
-    });
+    );
 }
 
 const getProductById = async (req, res) => {
@@ -117,7 +116,7 @@ const deleteProduct = async( req, res = response ) => {
             msg: 'Something went wrong, wait a moment and try again please'
         });
     }
-
+    
 }
 
 module.exports = {
