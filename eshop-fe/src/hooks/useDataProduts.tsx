@@ -13,6 +13,7 @@ export const useDataProduts = () => {
 	const query = useQuery(["hairProducts"], getHairProducts, {
 		retry: 1,
 		refetchOnWindowFocus: false,
+		// staleTime?
 	});
 
 	return query;
