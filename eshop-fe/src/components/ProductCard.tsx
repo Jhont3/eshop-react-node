@@ -22,17 +22,18 @@ export const ProductCard = ({
 			<div className='flex flex-col flex-wrap px-5 flex-none'>
 				<p className='text-md md:text-base font-semibold relative'>
 					<span>
-						<i className='fa-solid fa-store text-gray-400 text-2xl mr-2'></i>
+						<i className='fa-solid fa-store text-gray-400 text-base mr-2'></i>
 					</span>
-					<span className='ml-2 font-normal'>{title}</span>
+					<span className=' font-normal text-base'>{title}</span>
 					<span>
-						<i className='fa-regular fa-heart text-gray-400 text-2xl mr-2 absolute right-1'></i>
+						<i className='fa-regular fa-heart text-gray-400 text-2xl mr-2 absolute right-1 hover:scale-105 hover:text-red-600 animate-pulse delay-100'></i>
 					</span>
 				</p>
 
 				<p className='text-md md:text-base font-semibold'>
 					<span>
-						<i className='fa-duotone fa-dollar-sign text-gray-400 text-2xl mr-4'></i>
+						&nbsp;
+						<i className='fa-duotone fa-dollar-sign text-gray-400 text-base mr-1'></i>
 					</span>					
 					<span className='ml-2 font-normal'>{price}</span>
 				</p>

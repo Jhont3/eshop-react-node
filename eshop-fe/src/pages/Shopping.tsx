@@ -4,10 +4,13 @@ import {
 	SearchBar,
 	AnimatedTitle,
 } from "../components";
-import { useDataProduts } from "../hooks";
+import { useDataProduts, useDataStore } from "../hooks";
 
 export const Shopping = () => {
 	const productsQuery = useDataProduts();
+	const productsByZustand = useDataStore(DataProdStoreState => DataProdStoreState.hairProducts)
+
+	console.log(productsByZustand, "zustand")
 
 	if (productsQuery.isLoading) return <LoadingAnimation />;
 
@@ -39,7 +42,7 @@ export const Shopping = () => {
 				Products:
 			</h2>
 			<section className='grid grid-cols-1 mx-11 gap-5 justify-center items-center md:grid-cols-2 lg:grid-cols-4'>
-				{productsQuery.data?.map(item => (
+				{productsByZustand?.map(item => (
 					<ProductCard
 						img={item.image[0]}
 						title={item.name}
