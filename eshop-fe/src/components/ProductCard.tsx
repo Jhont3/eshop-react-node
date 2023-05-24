@@ -1,12 +1,25 @@
+import { useDataProduts, useDataStore } from "../hooks";
+import { HProduct } from "../interfaces/products";
+
 export const ProductCard = ({
 	img,
 	title,
 	price,
+	id,
 }: {
 	img: string;
 	title: string;
 	price: number;
+	id: string;
 }) => {
+	const productsQuery = useDataProduts();
+	const { setSelectedItems } = useDataStore();
+
+	const findItem = (id: string, arr: HProduct[]): HProduct[] => {
+		const foundItem = arr.find(item => item.id === id);
+		return foundItem ? [foundItem] : [];
+	};
+
 	return (
 		<div className='flex flex-col justify-between bg-white shadow-md rounded-md gap-5 mx-5 h-96 md:h-max pb-5 md:w-92 hover:shadow-xl cursor-pointer hover:scale-110 transition-all duration-150'>
 			<div className='overflow-hidden rounded-t-lg grow'>
@@ -26,7 +39,14 @@ export const ProductCard = ({
 					</span>
 					<span className=' font-normal text-base'>{title}</span>
 					<span>
-						<i className='fa-regular fa-heart text-gray-400 text-2xl mr-2 absolute right-1 hover:scale-105 hover:text-red-600 animate-pulse delay-100'></i>
+						{productsQuery.data && (
+							<i
+								onClick={() =>
+									setSelectedItems(findItem(id, productsQuery.data))
+								}
+								className='fa-regular fa-heart text-gray-400 text-2xl mr-2 absolute right-1 hover:scale-105 hover:text-red-600 animate-pulse delay-100'
+							></i>
+						)}
 					</span>
 				</p>
 
@@ -34,7 +54,7 @@ export const ProductCard = ({
 					<span>
 						&nbsp;
 						<i className='fa-duotone fa-dollar-sign text-gray-400 text-base mr-1'></i>
-					</span>					
+					</span>
 					<span className='ml-2 font-normal'>{price}</span>
 				</p>
 			</div>

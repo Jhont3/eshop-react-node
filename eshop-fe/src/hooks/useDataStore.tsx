@@ -6,6 +6,10 @@ interface DataProdStoreState {
 	setHairProducts: (data: HProduct[]) => void;
 	filterByPrice: (price: number) => void;
 	sortByname: () => void;
+	selectedItems: HProduct[];
+	setSelectedItems: (data: HProduct[]) => void;
+	cartState: boolean;
+	setCartState: () => void
 }
 
 export const useDataStore = create<DataProdStoreState>(set => ({
@@ -20,7 +24,14 @@ export const useDataStore = create<DataProdStoreState>(set => ({
 	},
 	sortByname: () => {
 		set(state => ({
-			hairProducts: state.hairProducts.sort((a, b) => a.name.localeCompare(b.name)),
+			hairProducts: state.hairProducts.sort((a, b) =>
+				a.name.localeCompare(b.name)
+			),
 		}));
 	},
+	selectedItems: [],
+	setSelectedItems: (data = []) =>
+		set(state => ({ selectedItems: [...state.selectedItems, ...data] })),
+	cartState: false,
+	setCartState: () => set(state => ({ cartState: !state.cartState })), 
 }));

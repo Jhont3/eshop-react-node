@@ -3,19 +3,23 @@ import {
 	ProductCard,
 	SearchBar,
 	AnimatedTitle,
+	ShoppingCart,
 } from "../components";
 import { useDataProduts, useDataStore } from "../hooks";
 
 export const Shopping = () => {
 	const productsQuery = useDataProduts();
-	const productsByZustand = useDataStore(DataProdStoreState => DataProdStoreState.hairProducts)
+	const productsByZustand = useDataStore(
+		DataProdStoreState => DataProdStoreState.hairProducts
+	);
 
-	console.log(productsByZustand, "zustand")
+	console.log(productsByZustand, "zustand");
 
 	if (productsQuery.isLoading) return <LoadingAnimation />;
 
 	return (
 		<>
+			<ShoppingCart />
 			<section className='relative'>
 				<article className='grid grid-cols-1 justify-center items-center gap-5 md:grid-cols-2'>
 					<AnimatedTitle />
@@ -47,6 +51,7 @@ export const Shopping = () => {
 						img={item.image[0]}
 						title={item.name}
 						key={item.id}
+						id={item.id}
 						price={item.price}
 					/>
 				))}

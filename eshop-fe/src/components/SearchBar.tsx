@@ -53,12 +53,14 @@ export const SearchBar = () => {
 			<button
 				className='bg-blue-2 hover:bg-blue-1 text-white px-3 py-2 rounded-md hover:scale-105'
 				onClick={resetProdData}
-			>Reset</button>
+			>
+				Reset
+			</button>
 			<button
 				className='bg-blue-2 hover:bg-blue-1 text-white px-3 py-2 rounded-md hover:scale-105'
 				onClick={sortByname}
 			>
-				Sort by name 
+				Sort by name
 			</button>
 		</form>
 	);

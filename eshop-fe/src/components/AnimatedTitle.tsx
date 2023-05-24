@@ -21,7 +21,7 @@ export const AnimatedTitle: React.FC = () => {
 
 	return (
 		<h1
-			className='z-30 font-bold text-4xl absolute top-1/4 left-1/4 text-black rounded-md p-1'
+			className='z-30 font-bold text-4xl absolute top-1/4 left-1/4 text-blue-2 bg-white rounded-md p-1'
 			ref={h1Ref}
 		>
 			HAIRY MONSTER

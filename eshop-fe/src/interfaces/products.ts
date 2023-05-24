@@ -6,5 +6,5 @@ export interface HProduct {
     image:          string[];
     price:          number;
     numberInStock?: number;
-    id?:            string;
+    id:            string;
 }

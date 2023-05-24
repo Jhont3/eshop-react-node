@@ -5,3 +5,4 @@ export { Footer } from './Footer';
 export { SearchBar } from './SearchBar';
 export { AnimatedTitle } from './AnimatedTitle';
 export { LoadingAnimation } from './LoadingAnimation';
+export { ShoppingCart } from './ShoppingCart';
