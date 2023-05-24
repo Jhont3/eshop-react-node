@@ -5,6 +5,7 @@ interface DataProdStoreState {
 	hairProducts: HProduct[];
 	setHairProducts: (data: HProduct[]) => void;
 	filterByPrice: (price: number) => void;
+	sortByname: () => void;
 }
 
 export const useDataStore = create<DataProdStoreState>(set => ({
@@ -15,6 +16,11 @@ export const useDataStore = create<DataProdStoreState>(set => ({
 			hairProducts: state.hairProducts.filter(
 				product => product.price <= price
 			),
+		}));
+	},
+	sortByname: () => {
+		set(state => ({
+			hairProducts: state.hairProducts.sort((a, b) => a.name.localeCompare(b.name)),
 		}));
 	},
 }));

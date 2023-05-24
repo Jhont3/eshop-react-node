@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useDataProduts, useDataStore } from "../hooks";
 
 export const SearchBar = () => {
-	const { filterByPrice, setHairProducts } = useDataStore();
+	const { filterByPrice, setHairProducts, sortByname } = useDataStore();
 	const [selectedValue, setSelectedValue] = useState("");
 
 	const productsQuery = useDataProduts();
@@ -20,12 +20,12 @@ export const SearchBar = () => {
 		console.log("Valor seleccionado:", selectedValue);
 	};
 
-	console.log(productsQuery.data, "aca")
+	console.log(productsQuery.data, "aca");
 
 	const resetProdData = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		productsQuery.data && setHairProducts(productsQuery.data)
-	}
+		productsQuery.data && setHairProducts(productsQuery.data);
+	};
 
 	return (
 		<form
@@ -51,11 +51,14 @@ export const SearchBar = () => {
 				Search
 			</button>
 			<button
-				type='reset'
 				className='bg-blue-2 hover:bg-blue-1 text-white px-3 py-2 rounded-md hover:scale-105'
 				onClick={resetProdData}
+			>Reset</button>
+			<button
+				className='bg-blue-2 hover:bg-blue-1 text-white px-3 py-2 rounded-md hover:scale-105'
+				onClick={sortByname}
 			>
-				Reset
+				Sort by name 
 			</button>
 		</form>
 	);
