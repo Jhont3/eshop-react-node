@@ -1,4 +1,4 @@
-const User = () => {
+export const User = () => {
 	return (
 		<section className='background-image h-[80.5vh] flex flex-col justify-center items-center gap-4'>
 			<h1 className='text-blue-2 text-4xl p-1'>Under construction....</h1>
@@ -6,7 +6,7 @@ const User = () => {
 				<img
 					src='/construction.png'
 					alt='under construction'
-					className='w-64 rounded-full animate-bounce'
+					className='w-52 rounded-full animate-bounce'
 				/>
 			</div>
 		</section>
