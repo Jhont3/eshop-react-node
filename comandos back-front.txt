@@ -22,6 +22,7 @@ discount by group of products?
 implement Stripe?
 validation correct cost products, products in orders
 validation and delete function like admin
+correct useRef 
 
 comandos front:
 yarn create vite eshop-fe --template react-ts

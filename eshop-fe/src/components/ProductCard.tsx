@@ -21,7 +21,7 @@ export const ProductCard = ({
 	};
 
 	return (
-		<div className='flex flex-col justify-between bg-white shadow-md rounded-md gap-5 mx-5 h-96 md:h-max pb-5 md:w-92 hover:shadow-xl cursor-pointer hover:scale-110 transition-all duration-150'>
+		<div className='flex flex-col justify-between bg-white shadow-md rounded-md gap-5 mx-5 h-96 md:h-max pb-5 md:w-92 hover:shadow-xl cursor-pointer hover:scale-110 transition-all duration-150 mb-2'>
 			<div className='overflow-hidden rounded-t-lg grow'>
 				<img
 					src={img}
