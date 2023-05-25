@@ -1,0 +1,483 @@
+{
+	"info": {
+		"_postman_id": "95f6567d-7c23-4ed6-b33f-8b31bbb33cd5",
+		"name": "eshop-mongo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21396733"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Auth - Create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Leo\",\r\n    \"email\": \"leo@teest.com\",\r\n    \"password\": \"pass1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/auth/register",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Auth - Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"leo@teest.com\",\r\n    \"password\": \"pass1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/auth",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Auth - Renew token",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDNlMWExMzZiYTBlNzE0YTVjMjgzZjIiLCJuYW1lIjoiTGV5IiwiaWF0IjoxNjgzOTI1MjQ1LCJleHAiOjE2ODM5MzI0NDV9.jtfMBQ0aGGdcLUSxhcZRCs3s0eG1AnlW5TuE7wZMUBA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/auth/renew",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"renew"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDJkMGZjMzg5YzNhNWVmZTQ0MDg1MDEiLCJuYW1lIjoiTGV5IiwiaWF0IjoxNjgyMDQ0ODMwLCJleHAiOjE2ODIwNTIwMzB9.7fDif9OAVeDSAFxrwsTyRnyMRFhySQdy1pm64IGAaZA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/user/",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDNlMWExMzZiYTBlNzE0YTVjMjgzZjIiLCJuYW1lIjoiTGV5IiwiaWF0IjoxNjgxNzkxNTA3LCJleHAiOjE2ODE3OTg3MDd9.0tecZeOq8IHyu5FFXEjw-ZXGFkiN2off8bpOAOcQBDM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/user/642d0fc389c3a5efe4408501",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"user",
+								"642d0fc389c3a5efe4408501"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update by ID",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDNlMWExMzZiYTBlNzE0YTVjMjgzZjIiLCJuYW1lIjoiTGV5IiwiaWF0IjoxNjgyMDUwMDQ2LCJleHAiOjE2ODIwNTcyNDZ9.tW5w3Dt7u9JhOF9-F_LpxiOHphwbDN3iEUQZ9qMJ17M",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Lion\",\r\n    \"email\": \"Richard@test.com\",\r\n    \"password\": \"pass1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/user/643e1a136ba0e714a5c283f2",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"user",
+								"643e1a136ba0e714a5c283f2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete By ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDJkMGZjMzg5YzNhNWVmZTQ0MDg1MDEiLCJuYW1lIjoiTGV5IiwiaWF0IjoxNjgyMDQ0ODMwLCJleHAiOjE2ODIwNTIwMzB9.7fDif9OAVeDSAFxrwsTyRnyMRFhySQdy1pm64IGAaZA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/user/642d0fc389c3a5efe4408501",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"user",
+								"642d0fc389c3a5efe4408501"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/api/products",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:4000/api/products/644c261d16cd32e1df4cccf8",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"products",
+								"644c261d16cd32e1df4cccf8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDNlMWExMzZiYTBlNzE0YTVjMjgzZjIiLCJuYW1lIjoiTGV5IiwiaWF0IjoxNjg0NTU1MTg2LCJleHAiOjE2ODQ1NjIzODZ9.Y0hjeKAeLJCxIVGyskGxdP9GEjaU1IqwmUd4BMg_ASw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Aconditionator\",\r\n    \"description\": \" Lorem ipsum dolor sit amet consectetur adipisicing elit. Error deleniti veniam quaerat modi quia beatae, libero itaque iste\",\r\n    \"image\": [\r\n        \"./red-product-2.jpg\"\r\n    ],\r\n    \"price\": 240,\r\n    \"numberInStock\": 6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/products",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update product",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDNlMWExMzZiYTBlNzE0YTVjMjgzZjIiLCJuYW1lIjoiTGV5IiwiaWF0IjoxNjgyNzExMjQxLCJleHAiOjE2ODI3MTg0NDF9.8MLW0X1_6sXszyf1MAHg2XrTufufV14-MMXP7uUvR5w",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"222\",\r\n    \"description\": \"Usefull\",\r\n    \"image\": [\"aaaa\"],\r\n    \"price\":100,\r\n    \"numberInStock\":0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/products/64475ef02f9f3772a060fad7",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"products",
+								"64475ef02f9f3772a060fad7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete product",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDNlMWExMzZiYTBlNzE0YTVjMjgzZjIiLCJuYW1lIjoiTGV5IiwiaWF0IjoxNjg0NTU1MTg2LCJleHAiOjE2ODQ1NjIzODZ9.Y0hjeKAeLJCxIVGyskGxdP9GEjaU1IqwmUd4BMg_ASw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/products/644c26704d201da3cab9050d",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"products",
+								"644c26704d201da3cab9050d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Get all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NDZmZDlmOWIwOTM0NjU0MjVmYWE4NTEiLCJuYW1lIjoiTGVvIiwiaWF0IjoxNjg1MDUxOTE0LCJleHAiOjE2ODUwNTkxMTR9.rM4aHsL8xdLGrflPtamnlWRdGdfla0lF8xGtMSAt3Ds",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:4000/api/orders",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n    \"date\": 1,\r\n    \"total\": 150,\r\n    \"products\": [\r\n        {   \r\n            \"price\": 50,\r\n            \"productName\": \"Shampoo\",\r\n            \"quantity\": 1,\r\n            \"product\": \"646847107f8b020eb9316d2e\"\r\n        },\r\n        {   \r\n            \"price\": 100,\r\n            \"productName\": \"Aconditionator\",\r\n            \"quantity\": 1,\r\n            \"product\": \"646847977f8b020eb9316d34\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/orders",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

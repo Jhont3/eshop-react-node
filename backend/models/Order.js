@@ -14,8 +14,8 @@ const OrderSchema = new mongoose.Schema({
   total: { type: Number, default: 0 },
   products: [
     {
-      productId: {
-        type: String,
+      price: {
+        type: Number,
         required: true
       },
       productName: {
