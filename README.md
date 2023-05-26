@@ -3,6 +3,8 @@
 
 This is my repository for practicing FullStack technologies. I practiced NodeJs, Express, JWT and MongoDB in backend folder creating a base structure of an e-shop, and I practiced ReactTs using Vite template, with Tailwind for styling, Axios for fething backend data, GSAP for animations, React Query for controlling fetched information, Zustand for managing state (simpler than Redux).
 
+[Demo](https://www.linkedin.com/feed/update/urn:li:activity:7067648066052337665/)
+
 ## Instructions
 
 ```bash
